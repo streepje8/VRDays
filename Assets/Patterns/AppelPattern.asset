@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a7c3b0188834234282c1cd3bcc55290, type: 3}
-  m_Name: Pattern
+  m_Name: AppelPattern
   m_EditorClassIdentifier: 
   poses:
-  - {fileID: 11400000, guid: 45d751fcfff07254482b389769fa6db8, type: 2}
-  - {fileID: 11400000, guid: c53a5234aa9945046a87cf9487985495, type: 2}
-  - {fileID: 11400000, guid: 45d751fcfff07254482b389769fa6db8, type: 2}
-  - {fileID: 11400000, guid: c53a5234aa9945046a87cf9487985495, type: 2}
+  - {fileID: 11400000, guid: 7d1a512324148414eaa4949f6e30e78e, type: 2}
+  - {fileID: 11400000, guid: 9275257e784bf0444a2b922e3f3dfff0, type: 2}

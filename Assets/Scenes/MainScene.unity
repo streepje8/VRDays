@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a6ac99dc31cd84aa26692b9ffeefc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fingerGuns: {fileID: 114281182293418346}
+  fingerGuns: {fileID: 114248360035030874}
   moveSpeed: 0.8
   handOrientation: {fileID: 1861753169}
 --- !u!143 &879933622
@@ -686,7 +686,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.8
-  m_Radius: 0.5
+  m_Radius: 0.05
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -745,6 +745,79 @@ MonoBehaviour:
   ringFlexMax: 1
   pinkyFlexMin: 0.7
   pinkyFlexMax: 1
+--- !u!1 &1242676646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1242676648}
+  - component: {fileID: 1242676647}
+  m_Layer: 0
+  m_Name: ObjectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1242676647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242676646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d6395f8cdd6b40b19376ced49d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handRPos: {fileID: 4967561066758278}
+  objects:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues:
+    - Appel
+    _keys:
+    - Appel
+    _values:
+    - {fileID: 792415224288407242, guid: 644ab60fcb7f60d4ab476306d7ab2562, type: 3}
+--- !u!4 &1242676648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242676646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1266206871
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1266206872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +852,9 @@ MonoBehaviour:
   handR: {fileID: 4763204063680732}
   TrackedHandL: {fileID: 114710116194385484}
   TrackedHandR: {fileID: 114001879398700810}
+  historyCount: 5
+  acc: 0.2
+  htc: 1
 --- !u!4 &1266206873
 Transform:
   m_ObjectHideFlags: 0
@@ -860,7 +936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1495013223
 Transform:
   m_ObjectHideFlags: 0
@@ -889,17 +965,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spells:
   - {fileID: 11400000, guid: ae27a0680e0aa064ca4649bd455db4d3, type: 2}
+  - {fileID: 11400000, guid: 69b6bca83ba32aa40bd27c5747d2b4e9, type: 2}
   spellStartPose: {fileID: 11400000, guid: 08e457b4304a2114bab2a263f4e95243, type: 2}
-  spellAccuracy: 0.7
-  handL: {fileID: 4271114097445282}
-  handR: {fileID: 4763204063680732}
+  spellAccuracy: 0.2
+  responses:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues:
+    - TestSpell
+    - AppelSpell
+    _keys:
+    - TestSpell
+    - AppelSpell
+    _values:
+    - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1242676647}
+          m_TargetAssemblyTypeName: ObjectSpawner, Assembly-CSharp
+          m_MethodName: SpawnObject
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Appel
+            m_BoolArgument: 1
+          m_CallState: 2
+  ctrL: {fileID: 470508422}
+  ctrR: {fileID: 1913529359}
   TrackedHandL: {fileID: 114710116194385484}
   TrackedHandR: {fileID: 114001879398700810}
-  DEBUG: 0
   spellScan: 0
   spellActive: 0
   activeSpell: {fileID: 0}
   spellStep: 1
+  historyCount: 1
 --- !u!1 &1798589368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1216,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4936813431172556, guid: 10165189c26095442b2cefc1acb4c734, type: 3}
   m_PrefabInstance: {fileID: 537391284}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4967561066758278 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4967560530309170, guid: 10165189c26095442b2cefc1acb4c734, type: 3}
+  m_PrefabInstance: {fileID: 537391284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &114001879398700810 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114001878862178238, guid: 10165189c26095442b2cefc1acb4c734, type: 3}
@@ -1104,9 +1232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5cf26d5c03c21448e3bbf835836feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114281182293418346 stripped
+--- !u!114 &114248360035030874 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114281181756494302, guid: 10165189c26095442b2cefc1acb4c734, type: 3}
+  m_CorrespondingSourceObject: {fileID: 114248359497754606, guid: 10165189c26095442b2cefc1acb4c734, type: 3}
   m_PrefabInstance: {fileID: 537391284}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

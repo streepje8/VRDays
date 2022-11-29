@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0505bb1de4876a746a8ddd3653f7750e, type: 3}
-  m_Name: PeaceSign
+  m_Name: OpenPalm
   m_EditorClassIdentifier: 
   validationValue: 0.99
   thumbFlexGoalL: 0
-  thumbFlexGoalR: 1
+  thumbFlexGoalR: 0.0323458
   indexFlexGoalL: 0
   indexFlexGoalR: 0
   middleFlexGoalL: 0
   middleFlexGoalR: 0
   ringFlexGoalL: 0
-  ringFlexGoalR: 1
+  ringFlexGoalR: 0
   pinkyFlexGoalL: 0
-  pinkyFlexGoalR: 1
+  pinkyFlexGoalR: 0
+  handLVector: {x: 0, y: 0, z: 0.15}
+  handRVector: {x: 0, y: 0, z: -0.15}

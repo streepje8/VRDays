@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Testing Spell
   pattern: {fileID: 11400000, guid: fe0aaee9c6708874c90891b1cbbd908e, type: 2}
-  onCast:
-    m_PersistentCalls:
-      m_Calls: []
+  responseID: TestSpell

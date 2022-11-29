@@ -1,26 +1,51 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RotaryHeart.Lib.SerializableDictionary;
 using SG;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpellManager : Singleton<SpellManager>
 {
+    [Header("Main Settings")]
     public List<Spell> spells = new List<Spell>();
     public GuesturePose spellStartPose;
     public float spellAccuracy = 0.7f;
-    public Transform handL;
-    public Transform handR;
+
+    [Header("Spell Responses")]
+    public SerializableDictionaryBase<string, UnityEvent> responses =
+        new SerializableDictionaryBase<string, UnityEvent>();
+
+    [Header("Assign these pls")]
+    public Transform ctrL;
+    public Transform ctrR;
     public SG_TrackedHand TrackedHandL;
     public SG_TrackedHand TrackedHandR;
-    public float DEBUG = 0f;
-    public bool spellScan = false;
-    public bool spellActive = false;
-    public Spell activeSpell = null;
-    public int spellStep = 1;
+    
+    [HideInInspector]public bool spellScan = false;
+    [HideInInspector]public bool spellActive = false;
+    [HideInInspector]public Spell activeSpell = null;
+    [HideInInspector]public int spellStep = 1;
     private float spellTime = 0f;
     private float[] lastFlexionsL = new float[5];
     private float[] lastFlexionsR = new float[5];
+
+    public int historyCount = 1;
+    struct PositionPair
+    {
+        public Vector3 handL;
+        public Vector3 handR;
+        public PositionPair(Vector3 handL, Vector3 handR)
+        {
+            this.handL = handL;
+            this.handR = handR;
+        }
+    }
+    private Queue<PositionPair> q = new Queue<PositionPair>();
+    private float counter = 0f;
+    private float pollingRate = 0.1f;
+    private PositionPair oldest;
     
     private void Awake()
     {
@@ -33,8 +58,8 @@ public class SpellManager : Singleton<SpellManager>
         if(TrackedHandR.IsConnected()) TrackedHandR.GetNormalizedFlexion(out lastFlexionsR);
         if (!spellActive && !spellScan)
         {
-            float scanValue = spellStartPose.Validate(handL.position, handR.position, lastFlexionsL, lastFlexionsR,
-                spellAccuracy);
+            float scanValue = spellStartPose.Validate(ctrL.position - oldest.handL,ctrR.position- oldest.handR, lastFlexionsL, lastFlexionsR,
+                spellAccuracy,GuesturePose.HandToCheck.Right);
             if (scanValue > spellStartPose.validationValue)
             {
                 spellScan = true;
@@ -47,8 +72,8 @@ public class SpellManager : Singleton<SpellManager>
         {
             foreach (Spell s in spells)
             {
-                float spellValue = s.pattern.poses[0].Validate(handL.position, handR.position, lastFlexionsL,
-                    lastFlexionsR, spellAccuracy);
+                float spellValue = s.pattern.poses[0].Validate(ctrL.position - oldest.handL,ctrR.position- oldest.handR, lastFlexionsL,
+                    lastFlexionsR, spellAccuracy,GuesturePose.HandToCheck.Right);
                 if (spellValue > s.pattern.poses[0].validationValue)
                 {
                     spellScan = false;
@@ -57,10 +82,6 @@ public class SpellManager : Singleton<SpellManager>
                     spellTime = 5f;
                     spellActive = true;
                     Debug.Log("Spell Detected!");
-                }
-                else
-                {
-                    DEBUG = spellValue;
                 }
             }
             spellTime -= Time.deltaTime;
@@ -76,12 +97,12 @@ public class SpellManager : Singleton<SpellManager>
         {
             if (activeSpell.pattern.poses.Count > spellStep)
             {
-                float validationValue = activeSpell.pattern.poses[spellStep].Validate(handL.position, handR.position,
-                    lastFlexionsL, lastFlexionsR, spellAccuracy);
+                float validationValue = activeSpell.pattern.poses[spellStep].Validate(ctrL.position - oldest.handL,ctrR.position - oldest.handR,
+                    lastFlexionsL, lastFlexionsR, spellAccuracy,GuesturePose.HandToCheck.Right);
                 if (validationValue >
                     activeSpell.pattern.poses[spellStep].validationValue)
                 {
-                    Debug.Log("Spell step " + spellStep + "/" + activeSpell.pattern.poses.Count + " with value: " + validationValue);
+                    Debug.Log("Spell step " + (spellStep + 1) + "/" + activeSpell.pattern.poses.Count + " with value: " + validationValue);
                     spellStep++;
                     spellTime = 5f;
                 }
@@ -89,7 +110,7 @@ public class SpellManager : Singleton<SpellManager>
             else
             {
                 Debug.Log("Cast: " + activeSpell.name);
-                activeSpell.onCast.Invoke();
+                responses[activeSpell.responseID].Invoke();
                 activeSpell = null;
                 spellActive = false;
                 //Spell finished!
@@ -101,6 +122,16 @@ public class SpellManager : Singleton<SpellManager>
                 activeSpell = null;
                 Debug.Log("Spell Cancelled");
             }
+        }
+        counter += Time.deltaTime;
+        if (counter > pollingRate)
+        {
+            q.Enqueue(new PositionPair(ctrL.position,ctrR.position));
+            if (q.Count > historyCount / pollingRate)
+            {
+                oldest = q.Dequeue();
+            }
+            counter = 0;
         }
     }
 }
