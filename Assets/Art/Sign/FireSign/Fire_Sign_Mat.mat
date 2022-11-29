@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lantern_Mat
+  m_Name: Fire_Sign_Mat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 94ea1fe67106b9846ab6b60fd375a1a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: d32d3308e65e0ff49a28fcfc05437a9e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,11 +40,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6b0c9811a83b89f4ba9b9953ea323624, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11cdd475638730e44b1fa22df0cd6b6a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 6b0c9811a83b89f4ba9b9953ea323624, type: 3}
+        m_Texture: {fileID: 2800000, guid: d71612ec19bb9394b862034655bd3025, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
