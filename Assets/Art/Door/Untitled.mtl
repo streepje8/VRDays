@@ -1,0 +1,93 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.202510665)
+
+newmtl Material
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.001
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.002
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.003
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.004
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.005
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.006
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.007
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
+newmtl Material.008
+kd 0.152314 0.049987 0.013178
+ka 1 1 1
+ks 0.5 0.5 0.5
+ke 0 0 0
+d 1
+Ns 1296
+illum 2
+map_kd .
+
