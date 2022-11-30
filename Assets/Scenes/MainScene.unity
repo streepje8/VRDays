@@ -1334,6 +1334,10 @@ PrefabInstance:
       propertyPath: isGlobal
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 622310154304085921, guid: 66b36b2767dc69341945b32ba0bdc470, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: dce7fcd7c31b80044abce0c3a4059fce, type: 2}
     - target: {fileID: 899762472740682810, guid: 66b36b2767dc69341945b32ba0bdc470, type: 3}
       propertyPath: m_Name
       value: Enviroment
