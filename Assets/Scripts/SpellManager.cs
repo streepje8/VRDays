@@ -64,6 +64,7 @@ public class SpellManager : Singleton<SpellManager>
             {
                 spellScan = true;
                 spellTime = 5f;
+                GameController.Instance.handEffects.FlashSpellEffect();
                 Debug.Log("Starting Spell!");
             }
         }
@@ -81,6 +82,7 @@ public class SpellManager : Singleton<SpellManager>
                     spellStep = 1;
                     spellTime = 5f;
                     spellActive = true;
+                    GameController.Instance.handEffects.FlashSpellEffect();
                     Debug.Log("Spell Detected!");
                 }
             }
@@ -90,6 +92,7 @@ public class SpellManager : Singleton<SpellManager>
                 spellScan = false;
                 activeSpell = null;
                 Debug.Log("Spell Cancelled");
+                GameController.Instance.handEffects.FlashSpellEffect(true);
             }
         }
 
@@ -109,6 +112,7 @@ public class SpellManager : Singleton<SpellManager>
             }
             else
             {
+                GameController.Instance.handEffects.FlashSpellEffect();
                 Debug.Log("Cast: " + activeSpell.name);
                 responses[activeSpell.responseID].Invoke();
                 activeSpell = null;
@@ -121,6 +125,7 @@ public class SpellManager : Singleton<SpellManager>
                 spellActive = false;
                 activeSpell = null;
                 Debug.Log("Spell Cancelled");
+                GameController.Instance.handEffects.FlashSpellEffect(true);
             }
         }
         counter += Time.deltaTime;

@@ -9,14 +9,16 @@ using UnityEngine;
 
 public class GameController : Singleton<GameController>
 {
+    [Header("Actual Gamecontroller stuff")]
     public float deviceCheckTime = 0.5f;
     public float accuracy = 0.8f;
+    public HandEffects handEffects;
 
+    [Header("For recoding poses")]
     public Transform handL;
     public Transform handR;
     public SG_TrackedHand TrackedHandL;
     public SG_TrackedHand TrackedHandR;
-    
     public Transform player;
     public GuesturePose pose = null;
 

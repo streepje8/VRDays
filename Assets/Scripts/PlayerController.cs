@@ -23,7 +23,16 @@ public class PlayerController : MonoBehaviour
             {
                 Quaternion rotation = Quaternion.Euler(0, handOrientation.eulerAngles.y, 0);
                 cc.Move(rotation * Vector3.forward * (moveSpeed * Time.deltaTime));
+                GameController.Instance.handEffects.isWalking = true;
             }
+            else
+            {
+                GameController.Instance.handEffects.isWalking = false;
+            }
+        }
+        else
+        {
+            GameController.Instance.handEffects.isWalking = false;
         }
     }
 }
