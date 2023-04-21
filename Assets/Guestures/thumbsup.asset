@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0505bb1de4876a746a8ddd3653f7750e, type: 3}
+  m_Name: thumbsup
+  m_EditorClassIdentifier: 
+  validationValue: 0.94
+  thumbFlexGoalL: 0
+  thumbFlexGoalR: 0
+  indexFlexGoalL: 0
+  indexFlexGoalR: 1
+  middleFlexGoalL: 0
+  middleFlexGoalR: 1
+  ringFlexGoalL: 0
+  ringFlexGoalR: 1
+  pinkyFlexGoalL: 0
+  pinkyFlexGoalR: 1
